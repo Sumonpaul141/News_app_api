@@ -36,9 +36,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.category),
+          color: Colors.red,
+          onPressed: () {
+            _scaffoldKey.currentState.openDrawer();
+          },
+        ),
         title: Text(
           appName,
           style: TextStyle(
@@ -47,9 +56,8 @@ class _HomePageState extends State<HomePage> {
         ),
         elevation: 0.3,
       ),
-      drawer: Drawer(
+      drawer: new Drawer(
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
             Stack(
