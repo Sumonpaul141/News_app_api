@@ -7,6 +7,8 @@ import 'package:newsapp/services/services.dart';
 import 'package:newsapp/views/full_news_page.dart';
 import 'package:newsapp/widgets/category_item.dart';
 
+import 'category_news.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -44,6 +46,52 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         elevation: 0.3,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                DrawerHeader(
+                  child: Text(
+                    'All News From The internet we will fetch it for you',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  decoration: BoxDecoration(color: Colors.red[600]),
+                ),
+              ],
+            ),
+            Container(
+              height: double.maxFinite,
+              child: ListView.builder(
+                itemCount: categoriesList.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryNews(category: categoriesList[index].categoryName,)));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 15.0, left: 15.0),
+                      child: Text(
+                        categoriesList[index].categoryName,
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(

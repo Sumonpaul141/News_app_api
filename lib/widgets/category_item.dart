@@ -15,6 +15,7 @@ class CategoryItem extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryNews(category: categoryTitle,)));
+
       },
       child: Container(
           margin: EdgeInsets.only(left: 12.0),
@@ -45,7 +46,7 @@ class CategoryItem extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              )
+              ),
             ],
           )),
     );
