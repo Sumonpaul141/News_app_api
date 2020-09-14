@@ -15,6 +15,7 @@ class CategoryNews extends StatefulWidget {
 class _CategoryNewsState extends State<CategoryNews> {
   Article article;
   bool _isLoading = true;
+  int index = 0;
 
   @override
   void initState() {
@@ -29,6 +30,8 @@ class _CategoryNewsState extends State<CategoryNews> {
       _isLoading = false;
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {

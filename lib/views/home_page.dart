@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.category),
+          icon: Icon(Icons.scatter_plot),
           color: Colors.red,
           onPressed: () {
             _scaffoldKey.currentState.openDrawer();
